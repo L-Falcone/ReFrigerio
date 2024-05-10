@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    scroll-behavior: smooth;
+    font-family: 'Concert One', sans-serif;
+}
+
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+/*NAVBAR*/
+
+.logo-nav{
+    width: 22vw;
+    position: relative;
+    
+}
+.navbar{
+    background-color: #d3edf8;
+    z-index: 1000; 
+    box-sizing: content-box;
+    color: black;
+}
+.nav-item a:hover,
+.nav-item a:active{
+    color: #56a5ea;
+}
+
+
+/*HOME*/
+
+.logo{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgb(86,165,234);
+    background: radial-gradient(circle, rgba(86,165,234,1) 0%, rgba(211,237,248,1) 50%, rgba(173,216,230,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.logo img{
+    width: 80%;
+    cursor: pointer;
+}
+
+.hidden{
+    transform: translateY(-100vh);
+} 
+
+.home{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(86,165,234);
+    background: linear-gradient(0deg, rgba(86,165,234,1) 0%, rgba(211,237,248,1) 65%, rgba(173,216,230,1) 100%);
+}
+
+.gallery{
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    transform-style: preserve-3d;
+    animation: animate 40s linear  infinite;
+    animation-play-state: running;
+}
+
+@keyframes animate {
+    0%{
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100%{
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+.gallery:hover{
+    animation-play-state: paused;
+}
+
+.img-rotate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--i) * 45deg)) translateZ(260px);
+    -webkit-box-reflect: below 0px linear-gradient(transparent,transparent,#0004);
+}
+
+.img-rotate img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.home h1{
+    position: absolute;
+    bottom: 90px;
+    display: inline-flex;
+    color: black;
+}
+
+.presentazione{
+    position: absolute;
+    display: inline-flex;
+    overflow: hidden;
+    bottom: 10px;
+    font-size: xx-large;
+    color:black;
+    left: 85px;
+    right: 60px;
+}
+
+
+
+
+/*PRODOTTI*/
+
+.prodotti{
+    background-color: #56a5ea;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.catalogo{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 20px;
+    background-color: #56a5ea;
+    border: unset;
+}
+
+.card .face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+
+.card .front{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .front img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .front h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background: rgb(0, 0, 0,.4);
+    text-align: center;
+}
+
+.card .back{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3, 35, 54);
+    padding: 0;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.card .back .link{
+    border-top: solid 1px #f3f3f3;
+    height: 40px;
+    line-height: 50px; 
+}
+
+.card:hover .front{
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover .back{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+
+/*INFO*/
+
+.info{
+    background: rgb(86,165,234);
+    background: linear-gradient(180deg, rgba(86,165,234,1) 0%, rgba(211,237,248,1) 7%, rgba(173,216,230,1) 100%);
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 69px;
+}
+
+.keywords{
+    display: flex;
+    flex-direction: column;
+}
+
+.keywords li{
+    padding-top: 10px;
+    list-style-type: none;
+}
+
+.impianto{
+    padding-bottom: 25px;
+    width: 100%;
+}
+
+.furgone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.furgone img{
+    width: 350px;
+}
+
+
+/*CONTATTI*/
+
+.mappa{
+    width: 100%;
+}
+
+.indirizzi{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.sede{
+    list-style-type: none;
+}
+
+.social{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.social img{
+    width: 65px;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+.mail{
+    display: flex;
+    align-items: center;
+}
+
+.whatsapp{
+    display: flex;
+    align-items: flex-end;
+}
+
+
+
+
+
+@media screen and (min-width: 992px){
+
+
+    /*NAVBAR*/
+
+    .navbar{
+        height: 50px;
+    }
+
+    .collapse{
+        display: flex;
+        justify-content:flex-end;
+        right: 5%;
+    }
+
+    .nav-item a:hover,
+    .nav-item a:active{
+        color: #56a5ea;
+    }
+
+    .logo-nav{
+        width: 150px;
+        position: relative;
+        left: 5%;
+    }
+
+
+    /*HOME*/
+
+    .home{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo img{
+        width: 500px;
+    }
+
+    .home h1{
+        top: 76px;
+    }
+
+    .presentazione{
+        display: flex;
+        justify-content: center;
+    }
+
+    
+    /*INFO*/
+    .keywords{
+        flex-direction: row;
+    }
+
+    .keywords li{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .carousel img{
+        width: 100vh;
+    }
+
+    .furgone img{
+        width: 500px;
+    }
+
+    .indirizzi{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .indirizzi ul{
+        padding-right: 80px;
+    }
+
+    .social{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }  
+}
+
